@@ -2,18 +2,19 @@ import util.Input;
 
 public class MainMenu {
     public static void main(String[] args) {
-            Input input = new Input();
-        System.out.println("1. View contacts.\n" +
-                "2. Add a new contact.\n" +
-                "3. Search a contact by name.\n" +
-                "4. Delete an existing contact.\n" +
-                "5. Exit.\n");
+        Input input = new Input();
+        String userChoice = "-1";
+        while (!userChoice.equals("1")) {
+            System.out.println("1. View contacts.\n" +
+                    "2. Add a new contact.\n" +
+                    "3. Search a contact by name.\n" +
+                    "4. Delete an existing contact.\n" +
+                    "5. Exit.\n");
+        }
     }
 } // End of Main
 //
-//    Input input = new Input();
-//    Movie[] movies = MoviesArray.findAll();
-//    String userChoice = "-1";
+
 //        while(!userChoice.equals("0")){
 //                System.out.println("What would you like to do?\n" +
 //                "\n" +
