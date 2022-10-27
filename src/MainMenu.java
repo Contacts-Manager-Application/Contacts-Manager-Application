@@ -1,3 +1,5 @@
+import util.Input;
+
 public class MainMenu {
     public static void main(String[] args) {
             Input input = new Input();
