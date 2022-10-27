@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import static util.Methods.printOutEverything;
 
-public class MainMenu extends Methods{
+public class MainMenu {
     public static void main(String[] args) throws IOException {
         Input input = new Input();
         Methods methods = new Methods();
