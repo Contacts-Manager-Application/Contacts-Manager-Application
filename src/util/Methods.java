@@ -16,6 +16,33 @@ public class Methods {
         }
     } // end of printOutEverything
 
+    static Path p = Paths.get("src","ContactsInfo","contacts.txt");
+    public static void greetNames() {
+        for (String name : readLines()) {
+            System.out.printf("%s works at Codeup.%n", name);
+        }
+    }
+
+    private static void writeLines(List<String> lines) {
+        try {
+            Files.write(p, lines);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static List<String> readLines() {
+        List<String> names;
+        try {
+            names = Files.readAllLines(p);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return names;
+    }
+
+
+
     public static void addPerson() throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter a contact name");
@@ -36,9 +63,9 @@ public class Methods {
 //        }
     }
 
-    private static String[] readLines() {
-        return new String[0];
-    }
+//    private static String[] readLines() {
+//        return new String[0];
+//    }
 
 } // end of Methods
 

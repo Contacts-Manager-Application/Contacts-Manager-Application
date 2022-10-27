@@ -3,7 +3,7 @@ package util;
 import java.util.Scanner;
 
 public class Input {
-    private  Scanner scanner;
+    private static Scanner scanner;
     // This is a getter
     public Scanner getScanner() {
         return scanner;
@@ -18,7 +18,7 @@ public class Input {
         return scanner.nextLine();
     }
     // The yesNo method should return true if the user enters y, yes, or variants thereof, and false otherwise.
-    public boolean yesNo() {
+    public static boolean yesNo() {
         System.out.println("Do you want to continue Y/N?");
         String userInput = scanner.next();
         if (userInput.equalsIgnoreCase("yes")||userInput.equalsIgnoreCase("y")){
