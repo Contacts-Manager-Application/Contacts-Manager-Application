@@ -1,14 +1,17 @@
 import util.Input;
-
+import util.Methods;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class MainMenu {
+import static util.Methods.printOutEverything;
+
+public class MainMenu extends Methods{
     public static void main(String[] args) throws IOException {
         Input input = new Input();
+        Methods methods = new Methods();
 
         System.out.println("1. View contacts.\n" +
                 "2. Add a new contact.\n" +
@@ -72,17 +75,6 @@ public class MainMenu {
 //        Files.write(Paths.get("contacts.txt"), Arrays.asList(newContact + "|" + newContactNumber), StandardOpenOption.APPEND);;
 //        printOutEverything();
 //    }
-    private static void printOutEverything() {
-        try {
-            Path path = FileSystems.getDefault().getPath("contacts.txt");
-            List<String> data = Files.readAllLines(path);
-            for(String info : data) {
-                System.out.println(info);
-            }
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
-    }
 } // End of Main
 //
 
