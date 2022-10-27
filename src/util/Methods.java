@@ -16,7 +16,7 @@ public class Methods {
         }
     } // end of printOutEverything
 
-    protected static void addPerson() throws IOException {
+    public static void addPerson() throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter a contact name");
         String newContact = scanner.next();

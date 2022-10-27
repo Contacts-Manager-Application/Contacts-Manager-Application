@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import static util.Methods.addPerson;
 import static util.Methods.printOutEverything;
 
 public class MainMenu {
