@@ -4,6 +4,10 @@ import java.nio.file.*;
 import java.util.*;
 
 public class Methods {
+    // Path to our file
+    static Path p = Paths.get("src","ContactsInfo","contacts.txt");
+
+    // This is our main menu methods
     public static void mainMenu(){
         System.out.println("1. View contacts.\n" +
                 "2. Add a new contact.\n" +
@@ -23,8 +27,6 @@ public class Methods {
             e.printStackTrace();
         }
     } // end of printOutEverything
-
-    static Path p = Paths.get("src","ContactsInfo","contacts.txt");
 
     private static List<String> readLines() {
         List<String> names;
@@ -57,10 +59,6 @@ public class Methods {
 //            }
 //        }
     }
-
-//    private static String[] readLines() {
-//        return new String[0];
-//    }
 
 } // end of Methods
 
