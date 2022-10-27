@@ -1,7 +1,10 @@
 import util.Input;
 import util.Methods;
+
+import java.awt.image.BandedSampleModel;
 import java.io.IOException;
 import java.nio.file.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -50,7 +53,9 @@ public class MainMenu {
                     List<String> data = Files.readAllLines(path);
                     for(String info : data) {
                         if (data.contains(userSelection)) {
-                            System.out.println("User exists!");
+                            System.out.println("User does exist");
+                        } else {
+                            System.out.println("User does not exist");
                         }
                     }
                 }
