@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Methods {
     // Path to our file
-    static Path p = Paths.get("src","ContactsInfo","contacts.txt");
+    private final static Path p = Paths.get("src","util", "contacts.txt");
 
     // This is our main menu methods
     public static void mainMenu(){
@@ -19,7 +19,7 @@ public class Methods {
     public static void printOutEverything() {
         try {
             Path path = FileSystems.getDefault().getPath("contacts.txt");
-            List<String> data = Files.readAllLines(path);
+            List<String> data = Files.readAllLines(p);
             for(String info : data) {
                 System.out.println(info);
             }
@@ -45,9 +45,9 @@ public class Methods {
         System.out.println("Enter a contact name");
         String newContact = scanner.next();
         System.out.println("Enter the contact number for: " + newContact);
-        int newContactNumber = scanner.nextInt();
+        String newContactNumber = scanner.next();
         System.out.println("The contact name and number you entered is: " + newContact + ", " + newContactNumber);
-        Files.write(Paths.get("contacts.txt"), Arrays.asList(newContact + "|" + newContactNumber), StandardOpenOption.APPEND);;
+        Files.write(Paths.get("src","util","contacts.txt"), Arrays.asList(newContact + "|" + newContactNumber), StandardOpenOption.APPEND);;
         printOutEverything();
     } // end of addPerson
 
