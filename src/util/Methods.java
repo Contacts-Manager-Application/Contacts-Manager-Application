@@ -28,12 +28,12 @@ public class Methods {
     } // end of addPerson
 
     private static void deleteName(){
-        List<String> updatedNames = new ArrayList<>();
-        for (String name : readLines()) {
-            if (!name.equalsIgnoreCase(nameToDelete)) {
-                updatedNames.add(name);
-            }
-        }
+//        List<String> updatedNames = new ArrayList<>();
+//        for (String name : readLines()) {
+//            if (!name.equalsIgnoreCase(nameToDelete)) {
+//                updatedNames.add(name);
+//            }
+//        }
     }
 
     private static String[] readLines() {

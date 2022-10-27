@@ -40,10 +40,21 @@ public class MainMenu extends Methods{
                 printOutEverything();
                 break;
             case 3: // Search a contact by name.
-                System.out.println("something");
+                System.out.println("Do you want to search for a user (yes or no?)");
+                String userSelection = scanner.next();
+                if (userSelection.equals("yes")) {
+                    System.out.println("Enter the name of the user");
+                    userSelection = scanner.next();
+                    Path path = FileSystems.getDefault().getPath("contacts.txt");
+                    List<String> data = Files.readAllLines(path);
+                    for(String info : data) {
+                        if (data.contains(userSelection)) {
+                            System.out.println("User exists!");
+                        }
+                    }
+                }
             case 4: // Delete an existing contact.
-                deleteName();
-                addPerson();
+                printOutEverything();
             case 5: // Exit.
                 System.out.println("Have a good day!");
                 break;
