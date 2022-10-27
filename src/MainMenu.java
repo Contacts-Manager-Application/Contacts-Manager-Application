@@ -1,15 +1,86 @@
 import util.Input;
 
+import java.io.IOException;
+import java.nio.file.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
 public class MainMenu {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Input input = new Input();
-        String userChoice = "-1";
-        while (!userChoice.equals("1")) {
-            System.out.println("1. View contacts.\n" +
-                    "2. Add a new contact.\n" +
-                    "3. Search a contact by name.\n" +
-                    "4. Delete an existing contact.\n" +
-                    "5. Exit.\n");
+
+        System.out.println("1. View contacts.\n" +
+                "2. Add a new contact.\n" +
+                "3. Search a contact by name.\n" +
+                "4. Delete an existing contact.\n" +
+                "5. Exit.\n");
+
+        System.out.println("Select an option from above: ");
+        Scanner scanner = new Scanner(System.in);
+        int userChoice = scanner.nextInt();
+
+//        while (userChoice > 0 && userChoice < 6) {
+//            System.out.println("1. View contacts.\n" +
+//                    "2. Add a new contact.\n" +
+//                    "3. Search a contact by name.\n" +
+//                    "4. Delete an existing contact.\n" +
+//                    "5. Exit.\n");
+
+        System.out.println("User selected: " + userChoice);
+        switch (userChoice) {
+            case 1:
+                printOutEverything();
+                break;
+            case 2:
+                System.out.println("Enter a contact name");
+                String newContact = scanner.next();
+                System.out.println("Enter the contact number for: " + newContact);
+                int newContactNumber = scanner.nextInt();
+                System.out.println("The contact name and number you entered is: " + newContact + ", " + newContactNumber);
+                Files.write(Paths.get("contacts.txt"), Arrays.asList(newContact + "|" + newContactNumber), StandardOpenOption.APPEND);;
+                printOutEverything();
+                break;
+            case 3:
+                System.out.println("something");
+            case 4:
+                System.out.println("something");
+            case 5:
+                System.out.println("Have a good day!");
+                break;
+        }
+//        void printOutEverything() {
+//            try {
+//                Path path = FileSystems.getDefault().getPath("contacts.txt");
+//                List<String> data = Files.readAllLines(path);
+//                for(String info : data) {
+//                    System.out.println(info);
+//                }
+//            } catch(IOException e) {
+//                e.printStackTrace();
+//            }
+
+        }
+//        }
+
+//    private static void addPerson() {
+//        System.out.println("Enter a contact name");
+//        String newContact = scanner.next();
+//        System.out.println("Enter the contact number for: " + newContact);
+//        int newContactNumber = scanner.nextInt();
+//        System.out.println("The contact name and number you entered is: " + newContact + ", " + newContactNumber);
+//        Files.write(Paths.get("contacts.txt"), Arrays.asList(newContact + "|" + newContactNumber), StandardOpenOption.APPEND);;
+//        printOutEverything();
+//    }
+    private static void printOutEverything() {
+        try {
+            Path path = FileSystems.getDefault().getPath("contacts.txt");
+            List<String> data = Files.readAllLines(path);
+            for(String info : data) {
+                System.out.println(info);
+            }
+        } catch(IOException e) {
+            e.printStackTrace();
         }
     }
 } // End of Main
