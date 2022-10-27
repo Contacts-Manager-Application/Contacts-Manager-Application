@@ -4,6 +4,14 @@ import java.nio.file.*;
 import java.util.*;
 
 public class Methods {
+    public static void mainMenu(){
+        System.out.println("1. View contacts.\n" +
+                "2. Add a new contact.\n" +
+                "3. Search a contact by name.\n" +
+                "4. Delete an existing contact.\n" +
+                "5. Exit.\n");
+        System.out.println("Enter an option (1, 2, 3, 4 or 5): ");
+    }
     public static void printOutEverything() {
         try {
             Path path = FileSystems.getDefault().getPath("contacts.txt");
@@ -17,19 +25,6 @@ public class Methods {
     } // end of printOutEverything
 
     static Path p = Paths.get("src","ContactsInfo","contacts.txt");
-    public static void greetNames() {
-        for (String name : readLines()) {
-            System.out.printf("%s works at Codeup.%n", name);
-        }
-    }
-
-    private static void writeLines(List<String> lines) {
-        try {
-            Files.write(p, lines);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     private static List<String> readLines() {
         List<String> names;
@@ -40,9 +35,9 @@ public class Methods {
         }
         return names;
     }
-
-
-
+    public static void addNameAndNumber (){
+        System.out.println("Name | Phone number:\n" + "------------------");
+    }
     public static void addPerson() throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter a contact name");
