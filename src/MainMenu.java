@@ -60,7 +60,18 @@ public class MainMenu {
                     }
                 }
             case 4: // Delete an existing contact.
-                printOutEverything();
+                List<String> lines = Files.readAllLines(Paths.get("contact"));
+                List<String> newList = new ArrayList<>();
+                userSelection = scanner.next();
+
+                for (String line : lines) {
+                    System.out.println(line);
+//                    if (!line.equals(userSelection)) {
+//                        newList.add(line);
+//                        continue;
+                    }
+//                    newList.add(line);
+//                Files.write(Paths.get("data", "groceries.txt"), newList);
             case 5: // Exit.
                 System.out.println("Have a good day!");
                 break;
