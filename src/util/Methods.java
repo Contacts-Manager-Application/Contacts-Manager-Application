@@ -1,10 +1,7 @@
 package util;
 import java.io.IOException;
 import java.nio.file.*;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Random;
+import java.util.*;
 
 public class Methods {
     public static void printOutEverything() {
@@ -18,7 +15,8 @@ public class Methods {
             e.printStackTrace();
         }
     } // end of printOutEverything
-        protected static void addPerson() throws IOException {
+
+    protected static void addPerson() throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter a contact name");
         String newContact = scanner.next();
@@ -28,6 +26,19 @@ public class Methods {
         Files.write(Paths.get("contacts.txt"), Arrays.asList(newContact + "|" + newContactNumber), StandardOpenOption.APPEND);;
         printOutEverything();
     } // end of addPerson
+
+    private static void deleteName(){
+        List<String> updatedNames = new ArrayList<>();
+        for (String name : readLines()) {
+            if (!name.equalsIgnoreCase(nameToDelete)) {
+                updatedNames.add(name);
+            }
+        }
+    }
+
+    private static String[] readLines() {
+        return new String[0];
+    }
 
 } // end of Methods
 

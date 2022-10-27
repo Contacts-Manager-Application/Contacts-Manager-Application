@@ -32,18 +32,19 @@ public class MainMenu extends Methods{
 
         System.out.println("User selected: " + userChoice);
         switch (userChoice) {
-            case 1:
+            case 1: // View contacts.
                 printOutEverything();
                 break;
-            case 2:
+            case 2: // Add a new contact.
                 addPerson();
                 printOutEverything();
                 break;
-            case 3:
+            case 3: // Search a contact by name.
                 System.out.println("something");
-            case 4:
+            case 4: // Delete an existing contact.
+                deleteName();
                 addPerson();
-            case 5:
+            case 5: // Exit.
                 System.out.println("Have a good day!");
                 break;
         }
