@@ -18,19 +18,19 @@ public class MainMenu {
         int userChoice = 0;
         boolean continueYesNo = true;
 
-        do {
+        while(continueYesNo){
             mainMenu();
             userChoice = scanner.nextInt();
             switch (userChoice) {
                 case 1: // View contacts.
                     addNameAndNumber();
                     printOutEverything();
-//                    continueYesNo = Input.yesNo();
+                    continueYesNo = Input.yesNo();
                     break;
                 case 2: // Add a new contact.
                     addPerson();
                     printOutEverything();
-//                    continueYesNo = Input.yesNo();
+                    continueYesNo = Input.yesNo();
                     break;
                 case 3: // Search a contact by name.
                     System.out.println("Do you want to search for a user (yes or no?)");
@@ -49,7 +49,7 @@ public class MainMenu {
                         }
                     }
                     // This means boolean continueYesNo = true = Do you want to continue Y/N?
-//                    continueYesNo = Input.yesNo();
+                    continueYesNo = Input.yesNo();
                     break;
                 case 4: // Delete an existing contact.
                     List<String> lines = Files.readAllLines(Paths.get("contact"));
@@ -69,6 +69,8 @@ public class MainMenu {
                     continueYesNo = false;
                     break;
             } // End of switch case
-        } while (!(userChoice == 5)); // End of while loop
-    }// End of main
+        }; // End of while loop
+//    } while (!(userChoice == 5)); // End of while loop
+
+}// End of main
 } // End of Class
