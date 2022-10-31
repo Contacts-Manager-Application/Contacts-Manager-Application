@@ -3,7 +3,7 @@ package util;
 import java.util.Scanner;
 
 public class Input {
-    private static Scanner scanner;
+    public static Scanner scanner;
     // This is a getter
     public Scanner getScanner() {
         return scanner;

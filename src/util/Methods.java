@@ -1,64 +1,61 @@
 package util;
+import contacts.Contact;
+
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
 
-public class Methods {
-    // Path to our file
-    private final static Path p = Paths.get("src","util", "contacts.txt");
+import static util.Input.scanner;
 
-    // This is our main menu methods
-    public static void mainMenu(){
+public class Methods {
+    static HashMap<String, String> contacts = new HashMap<>();
+    public static void viewMenu(){
         System.out.println("1. View contacts.\n" +
                 "2. Add a new contact.\n" +
                 "3. Search a contact by name.\n" +
                 "4. Delete an existing contact.\n" +
                 "5. Exit.\n");
-        System.out.println("Enter an option (1, 2, 3, 4 or 5): ");
+        System.out.println("Select an option from above: ");
+    } // end of viewMenu
+    public static void addNameAndNumber (HashMap<String, String> contacts){
+        System.out.println("Name | Phone number:\n" + "------------------");
+        for (Map.Entry<String, String> set : contacts.entrySet()) {
+            System.out.println((set.getKey() + " | " + set.getValue()));
+        }
+    } // end of addNameAndNumber
+
+    public static void addNewContact(HashMap<String, String> contacts,Scanner scanner){
+        System.out.println("Enter a name");
+        String userName = scanner.nextLine();
+        System.out.println("Enter a number");
+        String userNumber = scanner.nextLine();
+        Contact person = new Contact(userName, userNumber);
+        contacts.put(userName, String.valueOf(userNumber));
+        System.out.println(contacts.size());
     }
-    public static void printOutEverything() {
+    public static void loadData(HashMap<String, String> contacts) {
         try {
             Path path = FileSystems.getDefault().getPath("contacts.txt");
-            List<String> data = Files.readAllLines(p);
+            List<String> data = Files.readAllLines(path);
             for(String info : data) {
-                System.out.println(info);
+                String[] Parts = info.split(";");
+                contacts.put(Parts[0].strip(), new String(Parts[1].strip())) ;
             }
         } catch(IOException e) {
             e.printStackTrace();
         }
-    } // end of printOutEverything
+    } // end of loadData
 
-    private static List<String> readLines() {
-        List<String> names;
-        try {
-            names = Files.readAllLines(p);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+    public static void writeData(HashMap<String, String> contacts) throws IOException {
+        List<String> data = new ArrayList<>();
+        for (Map.Entry<String, String> entry : contacts.entrySet()) {
+            data.add(entry.getKey() + ";" + entry.getValue());
         }
-        return names;
-    }
-    public static void addNameAndNumber (){
-        System.out.println("Name | Phone number:\n" + "------------------");
-    }
-    public static void addPerson() throws IOException {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a contact name");
-        String newContact = scanner.next();
-        System.out.println("Enter the contact number for: " + newContact);
-        String newContactNumber = scanner.next();
-        System.out.println("The contact name and number you entered is: " + newContact + ", " + newContactNumber);
-        Files.write(Paths.get("src","util","contacts.txt"), Arrays.asList(newContact + "|" + newContactNumber), StandardOpenOption.APPEND);;
-        printOutEverything();
-    } // end of addPerson
+        Files.write(Paths.get("contacts.txt"), data);
+    } // end of writeData
 
-    private static void deleteName(){
-//        List<String> updatedNames = new ArrayList<>();
-//        for (String name : readLines()) {
-//            if (!name.equalsIgnoreCase(nameToDelete)) {
-//                updatedNames.add(name);
-//            }
-//        }
+    private static String[] readLines() {
+        return new String[0];
     }
 
 } // end of Methods
-
