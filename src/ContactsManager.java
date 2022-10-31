@@ -6,14 +6,13 @@ import java.util.*;
 import static util.Methods.*;
 
 public class ContactsManager {
-
     public static <userInput> void main(String[] args) throws IOException {
         HashMap<String, String> contacts = new HashMap<>();
-        System.out.println("Would you like to make a contact list (yes or no)?");
+        greeting();
         Scanner scanner = new Scanner(System.in);
         String userInput = scanner.nextLine();
         while (!userInput.equals("no")) {
-            viewMenu();
+            mainMenu();
             userInput = scanner.nextLine();
             switch (userInput) {
                 case "1" -> { // View contacts.
@@ -34,7 +33,7 @@ public class ContactsManager {
                     // does break but then option to do something appears again
                     userInput = "no";
             }
-        }
+        } // end of while loop
         farewell();
     }// end of main
 } // End of Class

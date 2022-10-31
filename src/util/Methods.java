@@ -9,7 +9,7 @@ import static util.Input.scanner;
 
 public class Methods {
     static HashMap<String, String> contacts = new HashMap<>();
-    public static void viewMenu(){
+    public static void mainMenu(){
         System.out.println("1. View contacts.\n" +
                 "2. Add a new contact.\n" +
                 "3. Search a contact by name.\n" +
@@ -17,13 +17,16 @@ public class Methods {
                 "5. Exit.\n");
         System.out.println("Select an option from above: ");
     } // end of viewMenu
+    public static void greeting(){
+        System.out.println("Would you like to make a contact list (yes or no)?");
+
+    }
     public static void addNameAndNumber (HashMap<String, String> contacts){
         System.out.println("Name | Phone number:\n" + "------------------");
         for (Map.Entry<String, String> set : contacts.entrySet()) {
             System.out.println((set.getKey() + " | " + set.getValue()));
         }
     } // end of addNameAndNumber
-
     public static void addNewContact(HashMap<String, String> contacts,Scanner scanner){
         System.out.println("Enter a name");
         String userName = scanner.nextLine();
@@ -32,7 +35,7 @@ public class Methods {
         Contact person = new Contact(userName, userNumber);
         contacts.put(userName, String.valueOf(userNumber));
         System.out.println(contacts.size());
-    }
+    } // end of addNewContact
     public static void searchByName(HashMap<String, String> contacts,Scanner scanner){
         System.out.println("Enter the name of the user");
         String userSelection = scanner.nextLine();
@@ -43,8 +46,7 @@ public class Methods {
                 continue;
             }
         }
-    }
-
+    }// end of searchByName
     public static void deleteContacts(HashMap<String, String> contacts,Scanner scanner) throws IOException {
         System.out.println("Enter the name of the user to remove");
         System.out.println(contacts);
@@ -65,7 +67,6 @@ public class Methods {
             e.printStackTrace();
         }
     } // end of loadData
-
     public static void writeData(HashMap<String, String> contacts) throws IOException {
         List<String> data = new ArrayList<>();
         for (Map.Entry<String, String> entry : contacts.entrySet()) {
@@ -76,11 +77,6 @@ public class Methods {
 
     public static void farewell(){
         System.out.println("Have a nice day!");
-
-    }
-
-    private static String[] readLines() {
-        return new String[0];
-    }
+    } // end of farewell
 
 } // end of Methods
