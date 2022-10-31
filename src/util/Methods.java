@@ -52,8 +52,7 @@ public class Methods {
         System.out.println(userSelection1);
         contacts.remove(userSelection1);
         writeData(contacts);
-
-    }
+    } // end of deleteContacts
     public static void loadData(HashMap<String, String> contacts) {
         try {
             Path path = FileSystems.getDefault().getPath("contacts.txt");
@@ -74,6 +73,11 @@ public class Methods {
         }
         Files.write(Paths.get("contacts.txt"), data);
     } // end of writeData
+
+    public static void farewell(){
+        System.out.println("Have a nice day!");
+
+    }
 
     private static String[] readLines() {
         return new String[0];

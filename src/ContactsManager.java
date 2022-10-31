@@ -35,6 +35,6 @@ public class ContactsManager {
                     userInput = "no";
             }
         }
-        System.out.println("Have a nice day!");
+        farewell();
     }// end of main
 } // End of Class
