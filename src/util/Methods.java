@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
 
-import static util.Input.scanner;
-
 public class Methods {
     static HashMap<String, String> contacts = new HashMap<>();
     public static void mainMenu(){
@@ -14,13 +12,12 @@ public class Methods {
                 "2. Add a new contact.\n" +
                 "3. Search a contact by name.\n" +
                 "4. Delete an existing contact.\n" +
-                "5. Exit.\n");
-        System.out.println("Select an option from above: ");
+                "5. Exit.\n" +
+                "Enter an option (1, 2, 3, 4 or 5):");
     } // end of viewMenu
     public static void greeting(){
         System.out.println("Would you like to make a contact list (yes or no)?");
-
-    }
+    } // end of greetings
     // 1. View contacts
     public static void loadData(HashMap<String, String> contacts) {
         try {
@@ -28,14 +25,14 @@ public class Methods {
             List<String> data = Files.readAllLines(path);
             for(String info : data) {
                 String[] Parts = info.split(";");
-                contacts.put(Parts[0].strip(), new String(Parts[1].strip())) ;
+                contacts.put(Parts[0].strip(), new String(Parts[1].strip()));
             }
         } catch(IOException e) {
             e.printStackTrace();
         }
     } // end of loadData
     public static void addNameAndNumber (HashMap<String, String> contacts){
-        System.out.println("Name | Phone number:\n" + "------------------");
+        System.out.println("Name | Phone number:\n" + "--------------------");
         for (Map.Entry<String, String> set : contacts.entrySet()) {
             System.out.println((set.getKey() + " | " + set.getValue()));
         }

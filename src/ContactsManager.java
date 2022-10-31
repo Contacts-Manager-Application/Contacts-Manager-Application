@@ -1,5 +1,3 @@
-import contacts.Contact;
-
 import java.io.IOException;
 import java.util.*;
 
@@ -35,5 +33,6 @@ public class ContactsManager {
             }
         } // end of while loop
         farewell();
+
     }// end of main
-} // End of Class
+} // end of Class
