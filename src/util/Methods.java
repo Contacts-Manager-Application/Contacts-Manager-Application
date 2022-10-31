@@ -6,6 +6,7 @@ import java.nio.file.*;
 import java.util.*;
 
 public class Methods {
+
     static HashMap<String, String> contacts = new HashMap<>();
     public static void mainMenu(){
         System.out.println("1. View contacts.\n" +
