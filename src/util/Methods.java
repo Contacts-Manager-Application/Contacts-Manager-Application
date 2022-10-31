@@ -33,6 +33,27 @@ public class Methods {
         contacts.put(userName, String.valueOf(userNumber));
         System.out.println(contacts.size());
     }
+    public static void searchByName(HashMap<String, String> contacts,Scanner scanner){
+        System.out.println("Enter the name of the user");
+        String userSelection = scanner.nextLine();
+        for (Map.Entry<String, String> set : contacts.entrySet()) {
+            if (set.getKey().contains(userSelection)) {
+                System.out.println(userSelection + " " + set.getValue());
+            } else {
+                continue;
+            }
+        }
+    }
+
+    public static void deleteContacts(HashMap<String, String> contacts,Scanner scanner) throws IOException {
+        System.out.println("Enter the name of the user to remove");
+        System.out.println(contacts);
+        String userSelection1 = scanner.nextLine();
+        System.out.println(userSelection1);
+        contacts.remove(userSelection1);
+        writeData(contacts);
+
+    }
     public static void loadData(HashMap<String, String> contacts) {
         try {
             Path path = FileSystems.getDefault().getPath("contacts.txt");

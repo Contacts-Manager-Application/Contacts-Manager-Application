@@ -25,23 +25,10 @@ public class ContactsManager {
                     writeData(contacts);
                 }
                 case "3" -> { // Search a contact by name.
-                    System.out.println("Enter the name of the user");
-                    String userSelection = scanner.nextLine();
-                    for (Map.Entry<String, String> set : contacts.entrySet()) {
-                        if (set.getKey().contains(userSelection)) {
-                            System.out.println(userSelection + " " + set.getValue());
-                        } else {
-                            continue;
-                        }
-                    }
+                    searchByName(contacts, scanner);
                 }
                 case "4" -> { // Delete an existing contact.
-                    System.out.println("Enter the name of the user to remove");
-                    System.out.println(contacts);
-                    String userSelection1 = scanner.nextLine();
-                    System.out.println(userSelection1);
-                    contacts.remove(userSelection1);
-                    writeData(contacts);
+                    deleteContacts(contacts,scanner);
                 }
                 case "5" -> // Exit
                     // does break but then option to do something appears again
